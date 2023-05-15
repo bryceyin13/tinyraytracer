@@ -16,7 +16,7 @@ Blinn-Phong模型总体的思路是把物体表面一个点的亮度抽象为三
 Diffuse是漫反射光产生的亮度，就是光线作用在物体表面一个点上，物体表面这个点向四面八方**均匀**反射的光产生的亮度。因为是向四面八方**均匀**反射的光，所以我们认为这个光线（在被摄像机捕捉到之后就转化为“亮度”）向各个方向的强度(Intensity)都是相同的，具体的公式如下图所示，图源GAMES101的slide。<br>
 
 <br>
-在代码实现中，我们写成以下的形式：material.diffuse_color * diffuse_light_intensity。实际上就是物体具有的颜色值（material.diffuse_color）乘上一个光强度（diffuse_light_intensity）。这里到达光的强度求法是Lambert's cosine Law，实际上就是我们都熟知的Intensity<sub>实际直接作用在面上的光</sub> = Intensity<sub>到达光</sub> * cos(光线与平面法线夹角)（印象中初高中物理的很多计算都涉及到了这个公式，所以这里不再赘述）。<br>
+在代码实现中，我们写成以下的形式：material.diffuse_color * diffuse_light_intensity。实际上就是物体具有的颜色值（material.diffuse_color）乘上一个光强度（diffuse_light_intensity）。这里到达目标点的光强度的求法是Lambert's cosine Law，实际上就是我们都熟知的Intensity<sub>实际直接作用在面上的光</sub> = Intensity<sub>到达光</sub> * cos(光线与平面法线夹角)（印象中初高中物理的很多计算都涉及到了这个公式，所以这里不再赘述）。<br>
 <br>
 Specular是镜面反射光产生的的亮度，镜面反射想必读者不会陌生，就是在镜面物体上反射的光，特点是入射角等于出射角。<br>
 <br>
